@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lumina AI — Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafafa; --bg2: #ffffff; --bg3: #f4f4f6;
+      --border: rgba(0,0,0,0.08); --border-strong: rgba(0,0,0,0.14);
+      --violet: #7c3aed; --violet2: #a78bfa;
+      --violet-light: rgba(124,58,237,0.08); --violet-border: rgba(124,58,237,0.2);
+      --teal: #0d9488; --text: #1a1a2e; --text-2: #4b5563; --text-muted: #9ca3af;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.7; display: flex; }
+
+    .sidebar { width: 260px; min-height: 100vh; background: var(--bg2); border-right: 1px solid var(--border); padding: 32px 0; position: fixed; top: 0; left: 0; overflow-y: auto; }
+    .sidebar-logo { padding: 0 24px 28px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+    .sidebar-brand { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--text); }
+    .sidebar-brand span { background: linear-gradient(135deg, var(--violet), var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sidebar-ver { font-size: 0.65rem; letter-spacing: 1.5px; color: var(--text-muted); display: block; margin-top: 4px; }
+    .nav-group { padding: 0 24px; }
+    .nav-group-title { font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); font-weight: 500; margin: 20px 0 8px; }
+    .nav-group a { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 7px; color: var(--text-2); font-size: 0.875rem; text-decoration: none; transition: all 0.2s; }
+    .nav-group a .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+    .nav-group a:hover { background: var(--violet-light); color: var(--violet); }
+
+    .main { margin-left: 260px; flex: 1; padding: 52px 60px 80px; max-width: 900px; }
+    .page-header { border-bottom: 1px solid var(--border); padding-bottom: 32px; margin-bottom: 48px; }
+    .page-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; letter-spacing: 2px; color: var(--violet); border: 1px solid var(--violet-border); padding: 4px 12px; border-radius: 20px; background: var(--violet-light); margin-bottom: 16px; }
+    .tag-orb { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--violet), var(--teal)); }
+    .page-header h1 { font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 800; letter-spacing: -1px; color: var(--text); margin-bottom: 12px; }
+    .page-header p { color: var(--text-2); font-size: 1rem; }
+
+    .doc-section { margin-bottom: 60px; scroll-margin-top: 32px; }
+    .doc-section h2 { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+    .doc-section h2 .num { font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; color: var(--violet); background: var(--violet-light); padding: 3px 10px; border-radius: 20px; font-family: 'DM Sans', sans-serif; }
+    .doc-section h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); margin: 24px 0 10px; }
+    .doc-section p { color: var(--text-2); margin-bottom: 12px; }
+    .doc-section ul, .doc-section ol { padding-left: 20px; color: var(--text-2); margin-bottom: 12px; }
+    .doc-section li { margin-bottom: 6px; }
+
+    pre { background: #1a1a2e; border-radius: 10px; padding: 20px 24px; overflow-x: auto; margin: 16px 0; font-family: 'Courier New', monospace; font-size: 0.82rem; line-height: 1.8; color: #c8c8d8; }
+    code { font-family: 'Courier New', monospace; font-size: 0.82rem; background: var(--violet-light); color: var(--violet); padding: 2px 7px; border-radius: 4px; }
+    pre code { background: none; padding: 0; color: #c8c8d8; }
+    .kw { color: #a78bfa; } .st { color: #6ee7b7; } .cm { color: #4a5568; } .pr { color: #fbbf24; }
+
+    .file-tree { background: #1a1a2e; border-radius: 10px; padding: 20px 24px; font-family: 'Courier New', monospace; font-size: 0.82rem; line-height: 2.1; margin: 16px 0; }
+    .ft-folder { color: #a78bfa; } .ft-file { color: #c8c8d8; } .ft-desc { color: #4a5568; margin-left: 10px; }
+
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.875rem; }
+    th { font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); font-weight: 500; }
+    td { padding: 10px 14px; border-bottom: 1px solid rgba(0,0,0,0.04); vertical-align: top; color: var(--text-2); }
+    td:first-child { font-family: 'Courier New', monospace; color: var(--violet); font-size: 0.8rem; }
+    tr:hover td { background: var(--violet-light); }
+
+    .callout { display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border-radius: 10px; margin: 16px 0; font-size: 0.9rem; }
+    .callout-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .callout.info { background: rgba(13,148,136,0.07); border: 1px solid rgba(13,148,136,0.2); color: #0d9488; }
+    .callout.tip { background: var(--violet-light); border: 1px solid var(--violet-border); color: var(--violet); }
+    .callout.warning { background: rgba(245,158,11,0.07); border: 1px solid rgba(245,158,11,0.2); color: #d97706; }
+
+    .credits-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-top: 16px; }
+    .credit-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; }
+    .credit-card strong { display: block; color: var(--text); margin-bottom: 4px; font-family: 'Syne', sans-serif; font-size: 0.9rem; }
+    .credit-card span { color: var(--text-muted); font-size: 0.82rem; }
+    .credit-card a { color: var(--violet); text-decoration: none; }
+    .credit-card a:hover { text-decoration: underline; }
+
+    .support-box { background: linear-gradient(135deg, #1a1a2e, #252545); border-radius: 16px; padding: 36px; text-align: center; margin-top: 16px; }
+    .support-box h3 { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
+    .support-box p { color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+    .support-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--violet), var(--teal)); color: #fff; font-family: 'Syne', sans-serif; font-weight: 700; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 0.95rem; }
+
+    @media (max-width: 768px) { .sidebar { display: none; } .main { margin-left: 0; padding: 32px 24px 60px; } .credits-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="sidebar-brand">lumina<span>ai</span></div>
+    <span class="sidebar-ver">v1.0.0 — DOCUMENTATION</span>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-title">Getting Started</div>
+    <a href="#intro"><span class="dot"></span> Introduction</a>
+    <a href="#requirements"><span class="dot"></span> Requirements</a>
+    <a href="#structure"><span class="dot"></span> File Structure</a>
+    <a href="#quickstart"><span class="dot"></span> Quick Start</a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-title">Customization</div>
+    <a href="#colors"><span class="dot"></span> Colors & Theme</a>
+    <a href="#typography"><span class="dot"></span> Typography</a>
+    <a href="#dashboard"><span class="dot"></span> Dashboard Mockup</a>
+    <a href="#bento"><span class="dot"></span> Bento Features</a>
+    <a href="#pricing"><span class="dot"></span> Pricing Toggle</a>
+    <a href="#faq"><span class="dot"></span> FAQ Accordion</a>
+    <a href="#counters"><span class="dot"></span> Counters</a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-group-title">Reference</div>
+    <a href="#credits"><span class="dot"></span> Credits</a>
+    <a href="#changelog"><span class="dot"></span> Changelog</a>
+    <a href="#support"><span class="dot"></span> Support</a>
+  </div>
+</aside>
+
+<main class="main">
+
+  <div class="page-header">
+    <div class="page-tag"><span class="tag-orb"></span> SAAS TEMPLATE DOCUMENTATION</div>
+    <h1>Lumina AI Documentation</h1>
+    <p>Complete setup and customization guide. No prior experience beyond basic HTML editing required.</p>
+  </div>
+
+  <section class="doc-section" id="intro">
+    <h2><span class="num">01</span> Introduction</h2>
+    <p>Lumina AI is a premium light-mode HTML template designed for AI-powered SaaS products, developer tools, and micro-SaaS startups. It uses a clean whitespace aesthetic with a violet/teal gradient accent system and modern typography to create the polished look that tech products demand.</p>
+    <h3>Sections Included</h3>
+    <ul>
+      <li><strong>Navbar</strong> — Sticky with glassmorphism on scroll, mobile hamburger menu</li>
+      <li><strong>Hero</strong> — Announcement chip, headline, CTA buttons, and browser dashboard mockup</li>
+      <li><strong>Logos Bar</strong> — Trusted-by company names</li>
+      <li><strong>How It Works</strong> — 3 numbered step cards with arrow connectors</li>
+      <li><strong>Features (Bento Grid)</strong> — 5 cards: prompt demo, insight bars, compliance badges, integrations, code block</li>
+      <li><strong>Testimonials</strong> — 3 cards + animated social proof stats</li>
+      <li><strong>Pricing</strong> — 3 plans (Free/Pro/Enterprise) with monthly/annual toggle</li>
+      <li><strong>FAQ</strong> — Accordion with animated open/close</li>
+      <li><strong>CTA Banner</strong> — Dark gradient final call-to-action</li>
+      <li><strong>Footer</strong> — Brand column, 4-link columns, social icons</li>
+    </ul>
+  </section>
+
+  <section class="doc-section" id="requirements">
+    <h2><span class="num">02</span> Requirements</h2>
+    <p>Lumina AI requires no build tools, no npm, and no server. It runs entirely in the browser.</p>
+    <ul>
+      <li>Any modern browser (Chrome, Firefox, Safari, Edge)</li>
+      <li>A text editor (VS Code recommended)</li>
+      <li>Any static host for deployment (GitHub Pages, Netlify, Vercel, shared hosting)</li>
+    </ul>
+    <div class="callout tip">
+      <span class="callout-icon">✦</span>
+      <span>Open <code>docs/index.html</code> directly in your browser to preview. Everything works immediately — no server needed.</span>
+    </div>
+    <h3>External CDN Dependencies</h3>
+    <table>
+      <tr><th>Library</th><th>Version</th><th>Purpose</th></tr>
+      <tr><td>AOS</td><td>2.3.1</td><td>Animate on Scroll — entrance animations for all sections</td></tr>
+      <tr><td>Syne (Google Fonts)</td><td>—</td><td>Display font — headings, logo, section titles</td></tr>
+      <tr><td>DM Sans (Google Fonts)</td><td>—</td><td>Body font — paragraphs, labels, UI text</td></tr>
+    </table>
+    <div class="callout warning">
+      <span class="callout-icon">⚠</span>
+      <span>Fonts and AOS load from CDN and require an internet connection. For fully offline use, download these assets locally and update the references in <code>index.html</code>.</span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="structure">
+    <h2><span class="num">03</span> File Structure</h2>
+    <div class="file-tree">
+      <div><span class="ft-folder">LuminaAI-SaaS-Template/</span></div>
+      <div>&nbsp;&nbsp;├── <span class="ft-folder">docs/</span></div>
+      <div>&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── <span class="ft-file">index.html</span><span class="ft-desc">← Main template file</span></div>
+      <div>&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── <span class="ft-file">style.css</span><span class="ft-desc">← All styles + CSS variables</span></div>
+      <div>&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <span class="ft-file">script.js</span><span class="ft-desc">← Counters, pricing toggle, FAQ, typing animation</span></div>
+      <div>&nbsp;&nbsp;├── <span class="ft-folder">documentation/</span></div>
+      <div>&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <span class="ft-file">documentation.html</span><span class="ft-desc">← This file</span></div>
+      <div>&nbsp;&nbsp;└── <span class="ft-file">README.txt</span><span class="ft-desc">← Quick start summary</span></div>
+    </div>
+  </section>
+
+  <section class="doc-section" id="quickstart">
+    <h2><span class="num">04</span> Quick Start</h2>
+    <h3>1. Preview</h3>
+    <p>Open <code>docs/index.html</code> in any browser. All animations and CDN assets load automatically.</p>
+    <h3>2. Replace brand name</h3>
+    <p>Search for <code>lumina</code> and <code>Lumina</code> in <code>index.html</code> and replace with your product name. The name appears in the nav, hero, CTA section, and footer.</p>
+    <h3>3. Deploy</h3>
+    <p>Upload the three files from <code>docs/</code> to any static host. For GitHub Pages: push to a repo, then go to Settings → Pages → Branch: main → / (root) → Save.</p>
+    <div class="callout info">
+      <span class="callout-icon">ℹ</span>
+      <span>Always keep <code>index.html</code>, <code>style.css</code>, and <code>script.js</code> in the same folder. They reference each other with relative paths.</span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="colors">
+    <h2><span class="num">05</span> Colors & Theme</h2>
+    <p>All colors use CSS custom properties defined in <code>style.css</code>. Change the accent color in one place and the entire template updates.</p>
+    <pre><span class="cm">/* style.css — :root */</span>
+<span class="kw">:root</span> {
+  <span class="cm">/* Backgrounds (light mode) */</span>
+  <span class="pr">--bg</span>: <span class="st">#fafafa</span>;
+  <span class="pr">--bg2</span>: <span class="st">#ffffff</span>;
+  <span class="pr">--bg3</span>: <span class="st">#f4f4f6</span>;
+
+  <span class="cm">/* Primary accent */</span>
+  <span class="pr">--violet</span>: <span class="st">#7c3aed</span>;
+  <span class="pr">--violet2</span>: <span class="st">#a78bfa</span>;
+  <span class="pr">--violet-light</span>: <span class="st">rgba(124,58,237,0.08)</span>;
+  <span class="pr">--violet-border</span>: <span class="st">rgba(124,58,237,0.2)</span>;
+
+  <span class="cm">/* Secondary accent (gradients) */</span>
+  <span class="pr">--teal</span>: <span class="st">#0d9488</span>;
+}</pre>
+    <h3>Example: Blue/Indigo theme</h3>
+    <pre><span class="kw">:root</span> {
+  <span class="pr">--violet</span>: <span class="st">#2563eb</span>;
+  <span class="pr">--violet2</span>: <span class="st">#60a5fa</span>;
+  <span class="pr">--violet-light</span>: <span class="st">rgba(37,99,235,0.08)</span>;
+  <span class="pr">--violet-border</span>: <span class="st">rgba(37,99,235,0.2)</span>;
+  <span class="pr">--teal</span>: <span class="st">#7c3aed</span>; <span class="cm">/* gradient end */</span>
+}</pre>
+    <div class="callout tip">
+      <span class="callout-icon">✦</span>
+      <span>Always update <code>--violet-light</code> and <code>--violet-border</code> alongside <code>--violet</code> using the same RGB values with low opacity. This keeps hover states, badges and borders consistent.</span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="typography">
+    <h2><span class="num">06</span> Typography</h2>
+    <table>
+      <tr><th>Variable</th><th>Font</th><th>Used for</th></tr>
+      <tr><td>--font-display</td><td>Syne</td><td>All headings (h1–h3), logo, plan names</td></tr>
+      <tr><td>--font-body</td><td>DM Sans</td><td>Paragraphs, nav links, labels, form inputs</td></tr>
+    </table>
+    <h3>Changing fonts</h3>
+    <pre><span class="cm">&lt;!-- index.html &lt;head&gt; — replace the Google Fonts URL --&gt;</span>
+&lt;<span class="kw">link</span> href=<span class="st">"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"</span> rel=<span class="st">"stylesheet"</span>&gt;
+
+<span class="cm">/* style.css :root */</span>
+<span class="pr">--font-display</span>: <span class="st">'Plus Jakarta Sans'</span>, sans-serif;</pre>
+  </section>
+
+  <section class="doc-section" id="dashboard">
+    <h2><span class="num">07</span> Dashboard Mockup</h2>
+    <p>The hero dashboard is built entirely with HTML and CSS — no images required. Key elements to customize:</p>
+    <h3>Stats cards</h3>
+    <pre>&lt;<span class="kw">div</span> class=<span class="st">"db-card"</span>&gt;
+  &lt;<span class="kw">span</span> class=<span class="st">"dbc-label"</span>&gt;API Calls Today&lt;/<span class="kw">span</span>&gt;
+  &lt;<span class="kw">strong</span> class=<span class="st">"dbc-val"</span>&gt;142,803&lt;/<span class="kw">strong</span>&gt;
+  &lt;<span class="kw">span</span> class=<span class="st">"dbc-trend up"</span>&gt;↑ 18%&lt;/<span class="kw">span</span>&gt;
+&lt;/<span class="kw">div</span>&gt;</pre>
+    <h3>Bar chart heights</h3>
+    <p>Each bar's height is set via the <code>--h</code> CSS variable as a percentage:</p>
+    <pre>&lt;<span class="kw">div</span> class=<span class="st">"db-bar"</span> style=<span class="st">"--h:70%"</span>&gt;&lt;<span class="kw">span</span>&gt;T&lt;/<span class="kw">span</span>&gt;&lt;/<span class="kw">div</span>&gt;
+&lt;<span class="kw">div</span> class=<span class="st">"db-bar active"</span> style=<span class="st">"--h:100%"</span>&gt;<span class="cm">&lt;!-- highlighted bar --&gt;</span></pre>
+    <div class="callout tip">
+      <span class="callout-icon">✦</span>
+      <span>Add class <code>active</code> to any <code>.db-bar</code> to apply the violet gradient highlight. Only one bar should be active at a time.</span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="bento">
+    <h2><span class="num">08</span> Bento Features Grid</h2>
+    <p>The features section uses a CSS Grid bento layout. Cards with class <code>bento-wide</code> span 2 columns:</p>
+    <pre>&lt;<span class="kw">div</span> class=<span class="st">"bento-card bento-wide"</span>&gt; <span class="cm">&lt;!-- spans 2 columns --&gt;</span>
+&lt;<span class="kw">div</span> class=<span class="st">"bento-card"</span>&gt;          <span class="cm">&lt;!-- spans 1 column --&gt;</span></pre>
+    <h3>Typing animation</h3>
+    <p>The prompt text typewriter effect triggers when the card enters the viewport. To change the text, edit the content of <code>.prompt-text.typing</code> in <code>index.html</code>. The JS handles the animation automatically.</p>
+    <h3>Insight bars</h3>
+    <p>Bar fill widths are set inline and animate on scroll:</p>
+    <pre>&lt;<span class="kw">div</span> class=<span class="st">"ib-fill"</span> style=<span class="st">"width:87%"</span>&gt;&lt;/<span class="kw">div</span>&gt;</pre>
+  </section>
+
+  <section class="doc-section" id="pricing">
+    <h2><span class="num">09</span> Pricing Toggle</h2>
+    <p>Prices are stored as data attributes on each <code>.plan-amount</code> element. No JavaScript changes needed to update prices:</p>
+    <pre>&lt;<span class="kw">span</span> class=<span class="st">"plan-amount"</span> data-monthly=<span class="st">"49"</span> data-annual=<span class="st">"37"</span>&gt;49&lt;/<span class="kw">span</span>&gt;</pre>
+    <table>
+      <tr><th>Plan</th><th>Monthly</th><th>Annual</th></tr>
+      <tr><td>Free</td><td>0</td><td>0</td></tr>
+      <tr><td>Pro</td><td>49</td><td>37</td></tr>
+      <tr><td>Enterprise</td><td>— (custom)</td><td>—</td></tr>
+    </table>
+    <p>The Enterprise plan uses a <code>.plan-custom</code> element instead of <code>.plan-amount</code> — it is not affected by the toggle.</p>
+  </section>
+
+  <section class="doc-section" id="faq">
+    <h2><span class="num">10</span> FAQ Accordion</h2>
+    <p>Add a new FAQ item by duplicating a <code>.faq-item</code> block and editing the question and answer:</p>
+    <pre>&lt;<span class="kw">div</span> class=<span class="st">"faq-item"</span>&gt;
+  &lt;<span class="kw">button</span> class=<span class="st">"faq-q"</span> onclick=<span class="st">"toggleFaq(this)"</span>&gt;
+    Your question here?
+    &lt;<span class="kw">span</span> class=<span class="st">"faq-icon"</span>&gt;+&lt;/<span class="kw">span</span>&gt;
+  &lt;/<span class="kw">button</span>&gt;
+  &lt;<span class="kw">div</span> class=<span class="st">"faq-a"</span>&gt;
+    &lt;<span class="kw">p</span>&gt;Your answer here.&lt;/<span class="kw">p</span>&gt;
+  &lt;/<span class="kw">div</span>&gt;
+&lt;/<span class="kw">div</span>&gt;</pre>
+    <div class="callout info">
+      <span class="callout-icon">ℹ</span>
+      <span>The accordion allows only one item open at a time. Add class <code>open</code> to a <code>.faq-item</code> to have it open by default on page load.</span>
+    </div>
+  </section>
+
+  <section class="doc-section" id="counters">
+    <h2><span class="num">11</span> Animated Counters</h2>
+    <p>The social proof stats animate when they scroll into view. Values are read from <code>data-count</code> attributes:</p>
+    <pre>&lt;<span class="kw">span</span> class=<span class="st">"sp-val"</span> data-count=<span class="st">"50000"</span>&gt;0&lt;/<span class="kw">span</span>&gt;   <span class="cm">&lt;!-- displays: 50,000 --&gt;</span>
+&lt;<span class="kw">span</span> class=<span class="st">"sp-val"</span> data-count=<span class="st">"4800000000"</span>&gt;0&lt;/<span class="kw">span</span>&gt; <span class="cm">&lt;!-- displays: 4.8B --&gt;</span>
+&lt;<span class="kw">span</span> class=<span class="st">"sp-val"</span> data-count=<span class="st">"99.99"</span>&gt;0&lt;/<span class="kw">span</span>&gt;   <span class="cm">&lt;!-- displays: 99.99 --&gt;</span></pre>
+    <p>The counter auto-formats values: thousands get commas, millions get M, billions get B, decimals preserve two places.</p>
+  </section>
+
+  <section class="doc-section" id="credits">
+    <h2><span class="num">12</span> Credits</h2>
+    <div class="credits-grid">
+      <div class="credit-card"><strong>AOS — Animate on Scroll</strong><span>License: MIT · <a href="https://michalsnik.github.io/aos/" target="_blank">michalsnik.github.io/aos</a></span></div>
+      <div class="credit-card"><strong>Syne (Google Fonts)</strong><span>License: SIL Open Font · <a href="https://fonts.google.com/specimen/Syne" target="_blank">fonts.google.com</a></span></div>
+      <div class="credit-card"><strong>DM Sans (Google Fonts)</strong><span>License: SIL Open Font · <a href="https://fonts.google.com/specimen/DM+Sans" target="_blank">fonts.google.com</a></span></div>
+      <div class="credit-card"><strong>Preview Images</strong><span>From <a href="https://unsplash.com" target="_blank">Unsplash</a> — free to use, not included in package.</span></div>
+    </div>
+  </section>
+
+  <section class="doc-section" id="changelog">
+    <h2><span class="num">13</span> Changelog</h2>
+    <h3>v1.0.0 — Initial Release</h3>
+    <ul>
+      <li>Full responsive layout with mobile hamburger navigation</li>
+      <li>Light mode with CSS custom property color system</li>
+      <li>Browser dashboard UI mockup with animated bar chart</li>
+      <li>Bento features grid with 5 unique card types</li>
+      <li>Typewriter animation on prompt demo card</li>
+      <li>Insight bars animated on scroll via IntersectionObserver</li>
+      <li>Social proof counters with smart number formatting (K/M/B)</li>
+      <li>Monthly/Annual pricing toggle with smooth counter animation</li>
+      <li>FAQ accordion (single-open, smooth show/hide)</li>
+      <li>AOS scroll animations on all major sections</li>
+      <li>Sticky navbar with glassmorphism blur on scroll</li>
+    </ul>
+  </section>
+
+  <section class="doc-section" id="support">
+    <h2><span class="num">14</span> Support</h2>
+    <div class="support-box">
+      <h3>Need help?</h3>
+      <p>Submit a support request via your Codester purchase page. We respond within 24–48 hours on business days.</p>
+      <a href="https://www.codester.com" class="support-btn">Open Support Request ✦</a>
+    </div>
+    <div class="callout warning" style="margin-top:24px">
+      <span class="callout-icon">⚠</span>
+      <span><strong>Support covers:</strong> template bugs, customization questions, and setup help. Does not include custom feature development, complete redesigns, or third-party service integrations.</span>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

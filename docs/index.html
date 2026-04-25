@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lumina AI — The Intelligent SaaS Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="bg-mesh"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-orb"></div>
+      <span>lumina<strong>ai</strong></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#testimonials">Customers</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="btn btn-ghost-sm">Log in</a>
+      <a href="#pricing" class="btn btn-primary">Start Free Trial</a>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#how">How It Works</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Customers</a>
+    <a href="#pricing" class="btn btn-primary">Start Free Trial</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-announce" data-aos="fade-down">
+      <span class="announce-dot"></span>
+      <span>Introducing Lumina AI 2.0 — Now with multimodal reasoning</span>
+      <span class="announce-arrow">→</span>
+    </div>
+    <h1 data-aos="fade-up" data-aos-delay="80">
+      Build smarter products<br/>
+      <span class="hero-gradient">powered by AI</span>
+    </h1>
+    <p class="hero-sub" data-aos="fade-up" data-aos-delay="160">
+      Lumina gives your team the AI infrastructure to automate workflows,
+      generate insights, and ship features 10× faster — without the complexity.
+    </p>
+    <div class="hero-cta" data-aos="fade-up" data-aos-delay="240">
+      <a href="#pricing" class="btn btn-primary btn-lg">
+        Get started free
+        <span class="btn-arrow">→</span>
+      </a>
+      <a href="#how" class="btn btn-outline-lg">
+        <span class="play-wrap">▶</span>
+        See a demo
+      </a>
+    </div>
+    <p class="hero-note" data-aos="fade-up" data-aos-delay="300">No credit card required · Free forever plan available</p>
+
+    <!-- Dashboard mockup -->
+    <div class="dashboard-wrap" data-aos="fade-up" data-aos-delay="360">
+      <div class="dashboard-chrome">
+        <div class="chrome-bar">
+          <span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span>
+          <div class="chrome-url">app.lumina.ai/dashboard</div>
+        </div>
+        <div class="dashboard-body">
+          <div class="db-sidebar">
+            <div class="db-nav-item active">Dashboard</div>
+            <div class="db-nav-item">Workflows</div>
+            <div class="db-nav-item">Analytics</div>
+            <div class="db-nav-item">Integrations</div>
+            <div class="db-nav-item">Settings</div>
+          </div>
+          <div class="db-main">
+            <div class="db-header">
+              <span class="db-greeting">Good morning, Alex 👋</span>
+              <div class="db-actions">
+                <span class="db-badge">Pro Plan</span>
+              </div>
+            </div>
+            <div class="db-cards">
+              <div class="db-card">
+                <span class="dbc-label">API Calls Today</span>
+                <strong class="dbc-val">142,803</strong>
+                <span class="dbc-trend up">↑ 18%</span>
+              </div>
+              <div class="db-card">
+                <span class="dbc-label">Workflows Active</span>
+                <strong class="dbc-val">34</strong>
+                <span class="dbc-trend up">↑ 3 new</span>
+              </div>
+              <div class="db-card">
+                <span class="dbc-label">Time Saved</span>
+                <strong class="dbc-val">620 hrs</strong>
+                <span class="dbc-trend up">↑ this month</span>
+              </div>
+            </div>
+            <div class="db-chart-area">
+              <span class="db-chart-label">AI Usage — Last 7 days</span>
+              <div class="db-bars">
+                <div class="db-bar" style="--h:55%"><span>M</span></div>
+                <div class="db-bar" style="--h:70%"><span>T</span></div>
+                <div class="db-bar" style="--h:45%"><span>W</span></div>
+                <div class="db-bar" style="--h:90%"><span>T</span></div>
+                <div class="db-bar" style="--h:65%"><span>F</span></div>
+                <div class="db-bar active" style="--h:100%"><span>S</span></div>
+                <div class="db-bar" style="--h:42%"><span>S</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-glow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<div class="logos-section">
+  <div class="container">
+    <p class="logos-label">Trusted by teams at</p>
+    <div class="logos-row">
+      <span>Stripe</span><span>Notion</span><span>Linear</span>
+      <span>Vercel</span><span>Figma</span><span>Loom</span><span>Retool</span>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="eyebrow">HOW IT WORKS</span>
+      <h2>From zero to AI-powered<br/>in three steps</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="step-number">01</div>
+        <div class="step-icon">🔗</div>
+        <h3>Connect your data</h3>
+        <p>Plug in your existing tools — databases, APIs, documents, Slack, Notion — in minutes. No data migration required.</p>
+      </div>
+      <div class="step-connector" data-aos="fade-up" data-aos-delay="80">
+        <div class="connector-line"></div>
+        <div class="connector-arrow">→</div>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="step-number">02</div>
+        <div class="step-icon">⚡</div>
+        <h3>Build your workflow</h3>
+        <p>Use our visual builder or plain English to describe what you want. Lumina AI turns it into a live automation workflow.</p>
+      </div>
+      <div class="step-connector" data-aos="fade-up" data-aos-delay="240">
+        <div class="connector-line"></div>
+        <div class="connector-arrow">→</div>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="320">
+        <div class="step-number">03</div>
+        <div class="step-icon">📈</div>
+        <h3>Watch it scale</h3>
+        <p>Your workflows run 24/7, handle millions of events, and improve themselves with each interaction. Set it and grow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENTO FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="eyebrow">FEATURES</span>
+      <h2>Everything your AI stack needs</h2>
+      <p>A complete platform — not a collection of disconnected tools.</p>
+    </div>
+    <div class="bento-grid">
+
+      <div class="bento-card bento-wide" data-aos="fade-up" data-aos-delay="0">
+        <div class="bento-content">
+          <span class="bento-tag">CORE</span>
+          <h3>Natural language workflows</h3>
+          <p>Describe what you need in plain English. Lumina AI generates, tests, and deploys production-ready automation — no code required.</p>
+          <div class="prompt-demo">
+            <div class="prompt-input">
+              <span class="prompt-icon">✦</span>
+              <span class="prompt-text typing">"Summarize all support tickets from today, group by severity, and send a Slack digest at 5pm"</span>
+              <span class="prompt-cursor">|</span>
+            </div>
+            <div class="prompt-result">
+              <span class="result-check">✓</span>
+              <span>Workflow created — runs daily at 5:00 PM</span>
+            </div>
+          </div>
+        </div>
+        <div class="bento-orb"></div>
+      </div>
+
+      <div class="bento-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="bento-content">
+          <span class="bento-tag">ANALYTICS</span>
+          <h3>Real-time AI insights</h3>
+          <p>Understand your data as it flows in. Ask questions, get answers instantly.</p>
+          <div class="insight-bars">
+            <div class="ib"><span>Automation rate</span><div class="ib-track"><div class="ib-fill" style="width:87%"></div></div><span>87%</span></div>
+            <div class="ib"><span>Error reduction</span><div class="ib-track"><div class="ib-fill" style="width:92%"></div></div><span>92%</span></div>
+            <div class="ib"><span>Cost savings</span><div class="ib-track"><div class="ib-fill" style="width:74%"></div></div><span>74%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="bento-content">
+          <span class="bento-tag">SECURITY</span>
+          <h3>Enterprise-grade privacy</h3>
+          <p>Your data never trains our models. SOC2 certified. GDPR compliant out of the box.</p>
+          <div class="security-badges">
+            <div class="sec-badge">SOC2</div>
+            <div class="sec-badge">GDPR</div>
+            <div class="sec-badge">HIPAA</div>
+            <div class="sec-badge">ISO 27001</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="bento-content">
+          <span class="bento-tag">INTEGRATIONS</span>
+          <h3>Connects to everything</h3>
+          <p>200+ native integrations. If it has an API, Lumina can talk to it.</p>
+          <div class="integrations-grid">
+            <div class="int-icon">Slack</div>
+            <div class="int-icon">Notion</div>
+            <div class="int-icon">GitHub</div>
+            <div class="int-icon">HubSpot</div>
+            <div class="int-icon">Stripe</div>
+            <div class="int-icon">+195</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento-card bento-wide" data-aos="fade-up" data-aos-delay="100">
+        <div class="bento-content">
+          <span class="bento-tag">DEVELOPER API</span>
+          <h3>Built for developers, loved by everyone</h3>
+          <p>Full REST API, SDKs in 8 languages, and webhooks. Ship your first AI feature in under an hour.</p>
+          <div class="code-block">
+            <div class="cb-header"><span class="cb-dot"></span><span class="cb-dot"></span><span class="cb-dot"></span><span class="cb-lang">JavaScript</span></div>
+            <pre class="cb-pre"><span class="cb-kw">import</span> { Lumina } <span class="cb-kw">from</span> <span class="cb-st">'@lumina/sdk'</span>;
+
+<span class="cb-kw">const</span> ai = <span class="cb-kw">new</span> Lumina({ apiKey: <span class="cb-st">'lmn_...'</span> });
+
+<span class="cb-kw">const</span> result = <span class="cb-kw">await</span> ai.workflow.run({
+  name: <span class="cb-st">'summarize-tickets'</span>,
+  input: { tickets, severity: <span class="cb-st">'high'</span> }
+});
+
+console.log(result.summary); <span class="cb-cm">// ✓ Done in 1.2s</span></pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="eyebrow">CUSTOMERS</span>
+      <h2>Loved by 50,000+ teams</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="testi-stars">★★★★★</div>
+        <p>"We replaced three separate tools with Lumina. Our engineering team now ships AI features in hours, not weeks. The ROI was immediate."</p>
+        <div class="testi-person">
+          <div class="testi-av" style="--av-color:#6366f1">SR</div>
+          <div>
+            <strong>Sarah Rodriguez</strong>
+            <span>VP Engineering · Draftbit</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The natural language workflow builder is genuinely magical. I described what I wanted in a sentence and it just worked. Our ops team uses it daily now."</p>
+        <div class="testi-person">
+          <div class="testi-av" style="--av-color:#0ea5e9">MC</div>
+          <div>
+            <strong>Marcus Chen</strong>
+            <span>Head of Ops · Lemon.io</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Privacy was our biggest concern with AI tools. Lumina's data-isolation guarantee and SOC2 certification let us get sign-off from legal in one meeting."</p>
+        <div class="testi-person">
+          <div class="testi-av" style="--av-color:#10b981">PK</div>
+          <div>
+            <strong>Priya Kapoor</strong>
+            <span>CISO · FinFlow Inc.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Social proof numbers -->
+    <div class="social-proof" data-aos="fade-up" data-aos-delay="80">
+      <div class="sp-item"><span class="sp-val" data-count="50000">0</span><span class="sp-plus">+</span><p>Active teams</p></div>
+      <div class="sp-div"></div>
+      <div class="sp-item"><span class="sp-val" data-count="4800000000">0</span><p>AI events processed</p></div>
+      <div class="sp-div"></div>
+      <div class="sp-item"><span class="sp-val" data-count="99.99">0</span><span class="sp-plus">%</span><p>Uptime SLA</p></div>
+      <div class="sp-div"></div>
+      <div class="sp-item"><span class="sp-val" data-count="8">0</span><span class="sp-plus">×</span><p>Average team velocity</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="eyebrow">PRICING</span>
+      <h2>Start free, scale as you grow</h2>
+      <p>No surprise charges. Cancel anytime. All plans include 14-day free trial.</p>
+    </div>
+
+    <div class="billing-toggle" data-aos="fade-up" data-aos-delay="40">
+      <span id="lbl-monthly">Monthly</span>
+      <label class="toggle">
+        <input type="checkbox" id="billingToggle"/>
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </label>
+      <span id="lbl-annual">Annual <em class="save-chip">Save 25%</em></span>
+    </div>
+
+    <div class="plans-grid" data-aos="fade-up" data-aos-delay="80">
+
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price-wrap">
+          <span class="plan-dollar">$</span>
+          <span class="plan-amount" data-monthly="0" data-annual="0">0</span>
+          <span class="plan-period">/mo</span>
+        </div>
+        <p class="plan-desc">Perfect for solo builders and prototyping.</p>
+        <ul class="plan-list">
+          <li>✓ 1,000 AI events/mo</li>
+          <li>✓ 3 active workflows</li>
+          <li>✓ Community support</li>
+          <li>✓ REST API access</li>
+          <li class="dim">✗ Custom models</li>
+          <li class="dim">✗ SSO & audit logs</li>
+        </ul>
+        <a href="#" class="btn btn-outline-plan">Get started free</a>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price-wrap">
+          <span class="plan-dollar">$</span>
+          <span class="plan-amount" data-monthly="49" data-annual="37">49</span>
+          <span class="plan-period">/mo</span>
+        </div>
+        <p class="plan-desc">For growing teams shipping AI products.</p>
+        <ul class="plan-list">
+          <li>✓ 500K AI events/mo</li>
+          <li>✓ Unlimited workflows</li>
+          <li>✓ Priority support</li>
+          <li>✓ REST API + SDKs</li>
+          <li>✓ Custom models</li>
+          <li class="dim">✗ SSO & audit logs</li>
+        </ul>
+        <a href="#" class="btn btn-primary plan-btn">Start free trial</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price-wrap">
+          <span class="plan-custom">Custom</span>
+        </div>
+        <p class="plan-desc">For large teams with advanced security needs.</p>
+        <ul class="plan-list">
+          <li>✓ Unlimited AI events</li>
+          <li>✓ Unlimited workflows</li>
+          <li>✓ Dedicated support</li>
+          <li>✓ Full API access</li>
+          <li>✓ Custom models</li>
+          <li>✓ SSO & audit logs</li>
+        </ul>
+        <a href="#" class="btn btn-outline-plan">Contact sales</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container faq-inner">
+    <div class="faq-left" data-aos="fade-right">
+      <span class="eyebrow">FAQ</span>
+      <h2>Common questions</h2>
+      <p>Can't find what you're looking for? <a href="#">Talk to our team →</a></p>
+    </div>
+    <div class="faq-list" data-aos="fade-left">
+      <div class="faq-item open">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Does my data train your AI models?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Never. Your data is fully isolated and is never used to train or improve Lumina's models. We are SOC2 Type II certified and GDPR compliant.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I use my own AI model?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes. Pro and Enterprise plans support BYO model — connect OpenAI, Anthropic, Mistral, or any custom model via API.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What counts as an AI event?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Any single AI inference call triggered through Lumina — a workflow run, an API call, an insight query. One prompt = one event.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I cancel?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Cancel anytime from your dashboard settings. No questions, no fees. Your data export is available for 30 days after cancellation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-card" data-aos="zoom-in">
+      <div class="cta-bg-orb"></div>
+      <span class="eyebrow">GET STARTED</span>
+      <h2>Start building with AI today</h2>
+      <p>Join 50,000+ teams already using Lumina. Free forever plan available, no credit card needed.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-primary btn-lg">Get started free <span class="btn-arrow">→</span></a>
+        <a href="#" class="btn btn-outline-lg">Book a demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo"><div class="logo-orb logo-orb-sm"></div><span>lumina<strong>ai</strong></span></a>
+      <p>The AI platform for modern product teams.</p>
+      <div class="footer-socials">
+        <a href="#">𝕏</a><a href="#">GH</a><a href="#">LI</a><a href="#">YT</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="fc"><h4>Product</h4><a href="#">Features</a><a href="#">Pricing</a><a href="#">Changelog</a><a href="#">Roadmap</a><a href="#">API Docs</a></div>
+      <div class="fc"><h4>Company</h4><a href="#">About</a><a href="#">Blog</a><a href="#">Careers</a><a href="#">Press</a></div>
+      <div class="fc"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a><a href="#">GDPR</a></div>
+      <div class="fc"><h4>Support</h4><a href="#">Docs</a><a href="#">Status</a><a href="#">Community</a><a href="#">Contact</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Lumina AI Inc. All rights reserved.</span>
+    <span>Made with ✦ for builders everywhere</span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
