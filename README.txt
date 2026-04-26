@@ -69,10 +69,20 @@ Open documentation/documentation.html in your browser
 for the full customization guide.
 
 ------------------------------------------------------
+------------------------------------------------------
 SUPPORT
 ------------------------------------------------------
-Submit support requests via your Codester purchase page.
-Response time: 24–48 hours on business days.
+Need help with Lumina AI?
+
+Contact me directly at: josejavierem@gmail.com
+
+Please include:
+- Your order number or the email you used to purchase
+- A clear description of the issue or what you need help with
+
+I usually reply within 24–48 hours on business days (often much faster).
+
+I'm the creator and I personally handle all support — happy to help you get the most out of the template!
 
 ------------------------------------------------------
 CREDITS
@@ -86,5 +96,4 @@ Google Fonts: Syne, DM Sans
 
 ======================================================
 © 2026 — All rights reserved.
-Distributed under Codester Regular License.
 ======================================================
